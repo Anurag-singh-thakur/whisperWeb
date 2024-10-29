@@ -1,0 +1,135 @@
+/* Base styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #2d2d2d;
+    color: white;
+  }
+  
+  /* Signup Container */
+  .signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #9b59b6, #2ecc71);
+    padding: 20px;
+    color: white;
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .signup-form-container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.5);
+  }
+  
+  .signup-form-container h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .signup-input-group {
+    position: relative;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .signup-input-group .signup-icon {
+    position: absolute;
+    left: 10px;
+    color: #bbb;
+  }
+  
+  .signup-form input {
+    padding: 15px 15px 15px 40px;
+    margin-bottom: 0px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signup-form input:focus {
+    background: rgba(255, 255, 255, 0.3);
+    outline: none;
+  }
+  
+  .signup-form input::placeholder {
+    color: #bbb;
+  }
+  
+  .signup-cta-button {
+    padding: 15px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #e74c3c;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .signup-cta-button:hover {
+    background-color: #c0392b;
+  }
+  
+  .signup-login-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #fff;
+  }
+  
+  .signup-login-link a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .signup-login-link a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .signup-form-container {
+      padding: 30px;
+    }
+  
+    .signup-form-container h2 {
+      font-size: 28px;
+    }
+  
+    .signup-form input {
+      padding: 12px 12px 12px 35px;
+      font-size: 14px;
+    }
+  
+    .signup-cta-button {
+      font-size: 16px;
+    }
+  }
+  
