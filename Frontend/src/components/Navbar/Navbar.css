@@ -40,7 +40,11 @@
 .nav-links li a:hover {
   text-decoration: underline;
 }
-
+.wrapper{
+  display: flex;
+  gap: 5px;
+  
+}
 /* Responsive styles */
 @media (max-width: 768px) {
   .menu-icon {
