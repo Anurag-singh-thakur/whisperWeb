@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.jpg'
-import { FaTimes, FaBars, FaHome, FaComments, FaSignInAlt, FaUserPlus, FaUser } from 'react-icons/fa';
+import { FaTimes, FaBars, FaRegBell  , FaHome, FaComments, FaSignInAlt, FaUserPlus, FaUser } from 'react-icons/fa';
+import { FaUsers } from "react-icons/fa";
 const Navbar = () => {
 
   const [isOpen, setIsOpen] = useState(false);
@@ -42,6 +43,14 @@ const Navbar = () => {
         <li className='wrapper'>
           <FaUserPlus />
           <Link to="/signup">Signup</Link>
+        </li>
+        <li className='wrapper'>
+        <FaUsers />
+          <Link to="/users">users</Link>
+        </li>
+        <li className='wrapper'>
+          <FaRegBell/>
+          <Link to="/notify">Notifications</Link>
         </li>
       </ul>
     </nav>

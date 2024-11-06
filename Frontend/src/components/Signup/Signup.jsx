@@ -1,20 +1,43 @@
 import React, { useState } from 'react';
-import { FaEnvelope, FaLock } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { FaEnvelope, FaLock, FaUser } from 'react-icons/fa';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'react-toastify'; // Import toast
 import './Signup.css';
 
 const Signup = () => {
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      alert('Passwords do not match!');
+      toast.error('Passwords do not match!'); // Use toast for error
       return;
     }
-    console.log('Signing up with:', email, password);
+
+    try {
+      const response = await axios.post('http://localhost:5000/api/auth/signup', {
+        username,
+        email,
+        password
+      });
+      console.log('Response data:', response.data);
+
+      if (response.data.success) {
+        toast.success('Signup successful!'); // Use toast for success
+        navigate('/login');
+      } else {
+        toast.error('Signup failed!'); // Use toast for error
+        console.log('Signup failed:', response.data.message);
+      }
+    } catch (error) {
+      console.error('Signup error:', error);
+      toast.error('An error occurred. Please try again.'); // Use toast for error
+    }
   };
 
   return (
@@ -22,6 +45,16 @@ const Signup = () => {
       <div className="signup-form-container">
         <h2>Signup</h2>
         <form onSubmit={handleSignup} className="signup-form">
+          <div className="signup-input-group">
+            <FaUser className="signup-icon" />
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
           <div className="signup-input-group">
             <FaEnvelope className="signup-icon" />
             <input

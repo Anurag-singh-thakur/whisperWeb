@@ -1,9 +1,9 @@
 /* Navbar styles */
 .navbar {
   display: flex;
+  height: 60px;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
   background: linear-gradient(90deg, #16a085, #2ecc71, #27ae60);
   color: white;
 }
